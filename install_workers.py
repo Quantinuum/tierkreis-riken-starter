@@ -65,11 +65,13 @@ deps = {
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_reimei",
+        branch="chore/tierkreis-riken-starter",
     ),
     "tkr_reimei_pjsub": GitHubDependency(
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_reimei",
+        branch="chore/tierkreis-riken-starter",
     ),
     "tkr_nexus": GitHubDependency(
         account="quantinuum",
