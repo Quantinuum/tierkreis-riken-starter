@@ -13,11 +13,11 @@ The registration process is out of scope for this repository but the following s
 From the root of the repository run the following commands, which will prompt for the credentials used to access Quantinuum Reimei and/or IBM Kobe.
 
 ```bash
-./smoke_tests/test_reimei_simulator.sh
+./tests/smoke_tests/test_reimei_simulator.sh
 ```
 
 ```bash
-./smoke_tests/test_ibm_kobe.sh
+./tests/smoke_tests/test_ibm_kobe.sh
 ```
 
 If there are errors at this point then the registration process is not completed or there is an error with a device.
