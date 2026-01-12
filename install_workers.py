@@ -73,7 +73,7 @@ deps = {
         subdirectory="workers/tkr_reimei",
         branch="chore/tierkreis-riken-starter",
     ),
-    "tkr_nexus": GitHubDependency(
+    "nexus_worker": GitHubDependency(
         account="quantinuum",
         repo="tierkreis",
         subdirectory="tierkreis_workers/nexus_worker",

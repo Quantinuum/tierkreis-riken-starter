@@ -7,7 +7,7 @@ from tierkreis.executor import UvExecutor
 from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 
 from data import RIKEN_WORKERS_DIR, deterministic
-from workers.ibm_kobe.stubs import get_transpile_info, compile_using_info, submit
+from workers.tkr_ibm_kobe.stubs import get_transpile_info, compile_using_info, submit
 
 Circuit = OpaqueType["pytket._tket.circuit.Circuit"]
 BackendResult = OpaqueType["pytket.backends.backendresult.BackendResult"]

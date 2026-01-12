@@ -7,7 +7,7 @@ from tierkreis.executor import UvExecutor
 from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 
 from data import RIKEN_WORKERS_DIR, deterministic
-from workers.reimei.stubs import (
+from workers.tkr_reimei.stubs import (
     compile_offline,
     sqcsub_submit_circuit,
 )
