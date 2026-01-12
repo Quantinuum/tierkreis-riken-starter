@@ -60,6 +60,7 @@ uv run ./install_workers.py
 ```
 
 will pull in some remote Python workers from GitHub.
+You can change the `deps` variable to pull in different workers.
 
 ### Post install step for IBM Kobe
 
