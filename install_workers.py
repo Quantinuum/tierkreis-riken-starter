@@ -1,3 +1,4 @@
+from os import rmdir, symlink, unlink
 from pathlib import Path
 from shutil import copytree, move
 import subprocess
@@ -32,10 +33,9 @@ class GitHubDependency(BaseModel):
 
         worker_dir = target_dir / worker_name
         if worker_dir.exists():
-            trash_dir = Path("/tmp") / worker_name / str(uuid4())
-            move(worker_dir, trash_dir)
+            worker_dir.unlink()
 
-        copytree(cache_dir / self.subdirectory, worker_dir)
+        symlink(cache_dir / self.subdirectory, worker_dir, target_is_directory=True)
 
 
 class PathDependency(BaseModel):
