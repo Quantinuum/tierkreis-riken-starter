@@ -9,3 +9,8 @@ dependencies = [
     "tierkreis>=2.0.9",
 ]
 
+[tool.uv]
+package = true
+
+[tool.setuptools]
+packages = ["workers", "workflows"]

@@ -7,7 +7,10 @@ from tierkreis.executor import UvExecutor
 from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 
 from data import RIKEN_WORKERS_DIR, deterministic
-from workers.reimei.stubs import compile_offline, sqcsub_submit_circuit
+from src.workers.reimei.stubs import (
+    compile_offline,
+    sqcsub_submit_circuit,
+)
 
 Circuit = OpaqueType["pytket._tket.circuit.Circuit"]
 BackendResult = OpaqueType["pytket.backends.backendresult.BackendResult"]

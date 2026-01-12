@@ -401,7 +401,7 @@ wheels = [
 [[package]]
 name = "tierkreis-riken-starter"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "." }
 dependencies = [
     { name = "pytket" },
     { name = "tierkreis" },
