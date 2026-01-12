@@ -1,0 +1,10 @@
+[project]
+name = "tierkreis-riken-starter"
+version = "0.1.0"
+description = "Example projects and workflows for using Tierkreis on Riken (Fugaku)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pytket>=2.11.0",
+    "tierkreis>=2.0.9",
+]
