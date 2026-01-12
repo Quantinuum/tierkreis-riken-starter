@@ -56,7 +56,17 @@ deps = {
         repo="tierkreis-riken",
         subdirectory="workers/tkr_ibm_kobe",
     ),
+    "ibm_kobe_pjsub": GitHubDependency(
+        account="quantinuum",
+        repo="tierkreis-riken",
+        subdirectory="workers/tkr_ibm_kobe",
+    ),
     "reimei": GitHubDependency(
+        account="quantinuum",
+        repo="tierkreis-riken",
+        subdirectory="workers/tkr_reimei",
+    ),
+    "reimei_pjsub": GitHubDependency(
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_reimei",
