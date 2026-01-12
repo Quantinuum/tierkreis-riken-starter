@@ -51,27 +51,27 @@ class PathDependency(BaseModel):
 TKRDependency = GitHubDependency | PathDependency
 
 deps = {
-    "ibm_kobe": GitHubDependency(
+    "tkr_ibm_kobe": GitHubDependency(
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_ibm_kobe",
     ),
-    "ibm_kobe_pjsub": GitHubDependency(
+    "tkr_ibm_kobe_pjsub": GitHubDependency(
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_ibm_kobe",
     ),
-    "reimei": GitHubDependency(
+    "tkr_reimei": GitHubDependency(
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_reimei",
     ),
-    "reimei_pjsub": GitHubDependency(
+    "tkr_reimei_pjsub": GitHubDependency(
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_reimei",
     ),
-    "nexus": GitHubDependency(
+    "tkr_nexus": GitHubDependency(
         account="quantinuum",
         repo="tierkreis",
         subdirectory="tierkreis_workers/nexus_worker",
