@@ -55,11 +55,13 @@ deps = {
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_ibm_kobe",
+        branch="chore/add-mkdir-p",
     ),
     "ibm_kobe_pjsub": GitHubDependency(
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_ibm_kobe",
+        branch="chore/add-mkdir-p",
     ),
     "reimei": GitHubDependency(
         account="quantinuum",

@@ -20,6 +20,8 @@ From the root of the repository run the following commands, which will prompt fo
 ./smoke_tests/test_ibm_kobe.sh
 ```
 
+If there are errors at this point then the registration process is not completed or there is an error with a device.
+
 ### Install uv
 
 We install `uv` twice: once for the login node and once for the compute nodes.
@@ -54,3 +56,8 @@ uv run ./install_workers/py
 ```
 
 ### Post install step for IBM Kobe
+
+```bash
+cd workers/ibm_kobe
+./scripts/build.sh
+```
