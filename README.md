@@ -49,4 +49,8 @@ When using `uv` on the compute nodes, we will directly use `~/.local/bin_aarch64
 
 ### Install workers
 
+```bash
+uv run ./install_workers/py
+```
+
 ### Post install step for IBM Kobe
