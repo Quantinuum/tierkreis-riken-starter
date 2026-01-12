@@ -51,11 +51,21 @@ When using `uv` on the compute nodes, we will directly use `~/.local/bin_aarch64
 
 ### Install workers
 
+Custom workers can be written to the `./workers` directory.
+An example of how to install some workers from GitHub is given by the file `install_workers.py`.
+So running
+
 ```bash
-uv run ./install_workers/py
+uv run ./install_workers.py
 ```
 
+will pull in some remote Python workers from GitHub.
+
 ### Post install step for IBM Kobe
+
+The worker for interacting with IBM Kobe needs a special post-install step,
+which builds C code for interacting directly with the Riken C API for QPUs.
+The script that performs the post-install operations is very specific to Fugaku and so will error if run elsewhere.
 
 ```bash
 cd workers/ibm_kobe
