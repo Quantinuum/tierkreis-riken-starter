@@ -47,7 +47,11 @@ $ which uv
 ~/.local/bin_x86_64/uv
 ```
 
-When using `uv` on the compute nodes, we will directly use `~/.local/bin_aarch64/uv`.
+Then add the following to `.bashrc` to select the correct one:
+
+```bash
+. "$HOME/.local/bin_$(uname -p)/env"
+```
 
 ### Install workers
 
