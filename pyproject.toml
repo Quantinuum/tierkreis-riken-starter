@@ -6,11 +6,14 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "pytket>=2.11.0",
-    "tierkreis>=2.0.9",
+    "tierkreis",
 ]
 
 [tool.uv]
 package = true
 
+[tool.uv.sources]
+tierkreis = { git = "https://github.com/Quantinuum/tierkreis.git", subdirectory = "tierkreis", branch = "chore/tierkreis-riken-starter" }
+
 [tool.setuptools]
-packages = ["workers", "workflows"]
+packages = ["workers", "workflows", "api"]
