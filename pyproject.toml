@@ -16,4 +16,4 @@ package = true
 tierkreis = { git = "https://github.com/Quantinuum/tierkreis.git", subdirectory = "tierkreis", branch = "chore/tierkreis-riken-starter" }
 
 [tool.setuptools]
-packages = ["workers", "workflows", "api"]
+packages = ["workers", "workflows"]
