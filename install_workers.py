@@ -9,18 +9,7 @@ deps: dict[str, TKRDependency] = {
         repo="tierkreis-riken",
         subdirectory="workers/tkr_ibm_kobe",
     ),
-    "tkr_ibm_kobe_pjsub": GitHubDependency(
-        account="quantinuum",
-        repo="tierkreis-riken",
-        subdirectory="workers/tkr_ibm_kobe",
-    ),
     "tkr_reimei": GitHubDependency(
-        account="quantinuum",
-        repo="tierkreis-riken",
-        subdirectory="workers/tkr_reimei",
-        branch="chore/tierkreis-riken-starter",
-    ),
-    "tkr_reimei_pjsub": GitHubDependency(
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_reimei",
