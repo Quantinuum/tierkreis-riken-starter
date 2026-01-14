@@ -20,7 +20,7 @@ res = g.task(sqcsub_submit_circuit(compiled_circuit, g.const(10)))
 g.outputs(res)
 
 if __name__ == "__main__":
-    storage = FileStorage(UUID(int=401), do_cleanup=True)
+    storage = FileStorage(UUID(int=402), do_cleanup=True)
     env = {"IS_DEV": "True"} if len(argv) > 1 and argv[1] == "dev" else {}
     exec = UvExecutor(RIKEN_WORKERS_DIR, storage.logs_path, env=env)
     run_graph(storage, exec, g, deterministic(), polling_interval_seconds=1)
