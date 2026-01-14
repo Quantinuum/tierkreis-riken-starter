@@ -1,6 +1,7 @@
 # Tierkreis Riken starter project
 
 Example project for using Tierkreis on Riken (Fugaku).
+Brings together
 
 ## Set up
 
@@ -40,17 +41,17 @@ wget https://github.com/astral-sh/uv/releases/download/0.9.24/uv-aarch64-unknown
 tar -C $HOME/.local/bin_aarch64/ -xvzf /tmp/uv/uv-aarch64-unknown-linux-gnu.tar.gz --strip-components=1
 ```
 
-Confirm that the correct `uv` is selected for the login node:
-
-```bash
-$ which uv
-~/.local/bin_x86_64/uv
-```
-
 Then add the following to `.bashrc` to select the correct one:
 
 ```bash
 . "$HOME/.local/bin_$(uname -p)/env"
+```
+
+Confirm that the correct `uv` is selected for the login node, after starting a new session
+
+```bash
+$ which uv
+~/.local/bin_x86_64/uv
 ```
 
 ### Install workers
