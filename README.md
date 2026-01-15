@@ -1,6 +1,6 @@
 # Tierkreis Riken starter project
 
-Example project for using Tierkreis on Riken (Fugaku).
+Example project for using Tierkreis on Fugaku (Riken).
 
 ## Set up
 
