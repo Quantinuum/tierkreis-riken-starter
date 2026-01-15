@@ -1,3 +1,4 @@
+from pathlib import Path
 from sys import argv
 from uuid import UUID
 from tierkreis import run_graph  # type: ignore
@@ -5,12 +6,13 @@ from tierkreis.builder import GraphBuilder
 from tierkreis.controller.data.models import TKR, OpaqueType
 from tierkreis.executor import UvExecutor
 from tierkreis.storage import FileStorage, read_outputs  # type: ignore
+from pytket.qasm.qasm import circuit_from_qasm
 
-from data import RIKEN_WORKERS_DIR, deterministic
 from workers.tkr_reimei.stubs import (
     compile_offline,
     sqcsub_submit_circuit,
 )
+from workflows.consts import WORKERS_DIR
 
 Circuit = OpaqueType["pytket._tket.circuit.Circuit"]
 BackendResult = OpaqueType["pytket.backends.backendresult.BackendResult"]
@@ -20,9 +22,11 @@ res = g.task(sqcsub_submit_circuit(compiled_circuit, g.const(10)))
 g.outputs(res)
 
 if __name__ == "__main__":
+    circuit = circuit_from_qasm(Path(__file__).parent / "data" / "simple.qasm")
+
     storage = FileStorage(UUID(int=402), do_cleanup=True)
     env = {"IS_DEV": "True"} if len(argv) > 1 and argv[1] == "dev" else {}
-    exec = UvExecutor(RIKEN_WORKERS_DIR, storage.logs_path, env=env)
-    run_graph(storage, exec, g, deterministic(), polling_interval_seconds=1)
+    exec = UvExecutor(WORKERS_DIR, storage.logs_path, env=env)
+    run_graph(storage, exec, g, circuit, polling_interval_seconds=1)
     output = read_outputs(g, storage)
     print(output)
