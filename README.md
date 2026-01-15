@@ -115,3 +115,14 @@ The script that performs the post-install operations is very specific to Fugaku 
 cd workers/tkr_ibm_kobe
 ./scripts/build.sh
 ```
+
+## Running Tierkreis graphs
+
+Each graph in the `graphs` directory can be executed with `uv`.
+E.g.
+
+```bash
+uv run graphs/compile_run_reimei_simulator.py
+```
+
+see the [README](./graphs/README.md) in the `graphs` directory for individual descriptions.
