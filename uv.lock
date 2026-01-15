@@ -389,7 +389,7 @@ wheels = [
 [[package]]
 name = "tierkreis"
 version = "2.0.9"
-source = { git = "https://github.com/Quantinuum/tierkreis.git?subdirectory=tierkreis&branch=chore%2Ftierkreis-riken-starter#d950da91bac5ca2dfd7e455f3f29661de3922bc5" }
+source = { git = "https://github.com/Quantinuum/tierkreis.git?subdirectory=tierkreis&branch=chore%2Ftierkreis-riken-starter#94c40ea23a7b497f6ca07a17f7cfb82c1baf6fd3" }
 dependencies = [
     { name = "pydantic" },
 ]
