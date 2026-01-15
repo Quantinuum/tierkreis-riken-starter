@@ -80,6 +80,25 @@ uv run ./install_workers.py
 will pull in some remote Python workers from GitHub.
 You can change the `deps` variable to pull in different workers.
 
+### Manual worker preparations (optional)
+
+One can make manual preparations for the workers by using an interactive environment.
+
+```bash
+pjsub --interact -g <GROUP_NAME> -L "node=1" -L "elapse=20:00" --sparam "wait-time=600" --no-check-directory
+```
+
+and then `cd` into each worker directory and make any manual preparations you require.
+E.g.
+
+```bash
+cd workers/aer_worker
+env UV_PROJECT_ENVIRONMENT=compute_venv uv sync
+```
+
+will save time by installing the dependencies before running your workflow.
+This is strictly speaking not necessary because `uv` will always perform a sync when running `uv run`.
+
 ### Post install step for IBM Kobe
 
 The worker for interacting with IBM Kobe needs a special post-install step,
