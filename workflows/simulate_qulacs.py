@@ -11,7 +11,7 @@ from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 from tierkreis.executor import UvExecutor, TaskExecutor, PJSUBExecutor
 from tierkreis.controller.executor.hpc.job_spec import JobSpec, ResourceSpec
 
-from consts import WORKERS_DIR
+from workflows.consts import WORKERS_DIR
 
 simulator_name = "aer"
 circuit = circuit_from_qasm(Path(__file__).parent / "data" / "ghz_state_n23.qasm")
@@ -42,7 +42,8 @@ if __name__ == "__main__":
     )
     pjsub = PJSUBExecutor(spec=spec, registry_path=WORKERS_DIR, logs_path=logs_path)
     executor = TaskExecutor(
-        {"qulacs_worker.run_circuit": pjsub, "aer_worker.run_circuit": pjsub, "*": uv}
+        {"qulacs_worker.run_circuit": pjsub, "aer_worker.run_circuit": pjsub, "*": uv},
+        storage,
     )
 
     inputs: dict[str, Any] = {
