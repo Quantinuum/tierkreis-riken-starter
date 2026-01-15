@@ -74,6 +74,6 @@ which builds C code for interacting directly with the Riken C API for QPUs.
 The script that performs the post-install operations is very specific to Fugaku and so will error if run elsewhere.
 
 ```bash
-cd workers/ibm_kobe
+cd workers/tkr_ibm_kobe
 ./scripts/build.sh
 ```
