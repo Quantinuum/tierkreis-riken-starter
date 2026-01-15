@@ -26,3 +26,9 @@
 - Compiles the inputs circuit for use on Quantinuum Reimei.
 - Submits the compiled circuit to the Quantinuum Reimei simulator for execution.
 - Parses the output giving results as a dictionary where the keys are classical register names and the values are lists of shots.
+
+### simulate_aer.py
+
+- This script takes as an argument the group name under which we submit compute node jobs to Fugaku using `pjsub`.
+- Uses the `TaskExecutor` to run the `run_circuit` task of the `aer_worker` to run using `pjsub` but all other tasks on the login node. Changing the dictionary input to `TaskExecutor` will change which tasks run on the compute nodes and which tasks run on the login node.
+- The graph `compile_simulate` is a graph provided by the Tierkreis library. It takes a list of circuits and compiles them for Qiskit Aer and then executes them on Qiskit Aer. Using the Tierkreis MAP node the compilation and execution of all of the circuits is done in parallel.
