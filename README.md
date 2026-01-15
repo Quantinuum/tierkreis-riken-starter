@@ -2,6 +2,12 @@
 
 Example project for using Tierkreis on Fugaku (Riken).
 
+## Project structure
+
+- `graphs`: The Tierkreis graphs that specify the order of execution of our computations.
+- `workers`: Each subdirectory constitutes a worker. A worker is a collection of task definitions that have a common set of dependencies.
+- `install_workers.py`: An example script to demonstrate how to pull in dependencies used in the graphs in `graphs`.
+
 ## Set up
 
 Clone this repo to the Fugaku login node.
