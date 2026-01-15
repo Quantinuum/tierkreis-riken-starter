@@ -37,7 +37,7 @@ where `<QPU_NAME>` is one of `ibm-kobe-dacc`, `reimei` or `reimei-simulator`.
 
 ### Install uv
 
-We install `uv` twice because of the different in architecture between the login and compute nodes.
+We install `uv` twice because of the difference in architecture between the login and compute nodes.
 
 For the login node:
 
@@ -68,7 +68,7 @@ $ which uv
 
 ### Install workers
 
-Custom workers can be written to the `./workers` directory.
+Custom workers can be created as new folders in the `./workers` directory.
 An example of how to install some workers from GitHub is given by the file `install_workers.py`.
 So running
 
