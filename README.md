@@ -23,6 +23,19 @@ From the root of the repository run the following commands, which will prompt fo
 
 If there are errors at this point then the registration process is not completed or there is an error with a device.
 
+### Device switching
+
+Currently one must manually switch between QPUs with the following commands before using the Tierkreis worker corresponding to the QPU:
+
+```bash
+. /vol0300/share/ra010014/jhpcq/x86/scripts/install-cert-files.sh <QPU_NAME>;
+source /vol0003/share/ra010014/jhpcq/bin/jhpc-q-setup.sh
+fetch_qtm_jwt.py
+mv $HOME/.qtm.jwt $HOME/.sqc_rpc_sched/jwt.token
+```
+
+where `<QPU_NAME>` is one of `ibm-kobe-dacc`, `reimei` or `reimei-simulator`.
+
 ### Install uv
 
 We install `uv` twice: once for the login node and once for the compute nodes.
