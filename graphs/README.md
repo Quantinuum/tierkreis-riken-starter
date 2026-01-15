@@ -10,6 +10,8 @@
 
 ### compile_run_ibm.py
 
+Compile and run a circuit on IBM Kobe.
+
 - Uses the Riken quantum C API to get the current transpilation information for IBM Kobe.
 - Compiles a simple circuit using `pytket` using the transpilation information.
 - Submits the compiled circuit to IBM Kobe for execution.
@@ -17,17 +19,23 @@
 
 ### compile_run_reimei.py
 
+Compile and run a circuit on Quantinuum Reimei.
+
 - Compiles the inputs circuit for use on Quantinuum Reimei.
 - Submits the compiled circuit to Quantinuum Reimei for execution.
 - Parses the output giving results as a dictionary where the keys are classical register names and the values are lists of shots.
 
 ### compile_run_reimei_simulator.py
 
+Compile and run a circuit on the Quantinuum Reimei simulator.
+
 - Compiles the inputs circuit for use on Quantinuum Reimei.
 - Submits the compiled circuit to the Quantinuum Reimei simulator for execution.
 - Parses the output giving results as a dictionary where the keys are classical register names and the values are lists of shots.
 
 ### simulate_aer.py
+
+Use `pjsub` to simulate circuits in parallel on the Fugaku compute nodes.
 
 - This script takes as an argument the group name under which we submit compute node jobs to Fugaku using `pjsub`.
 - Uses the `TaskExecutor` to run the `run_circuit` task of the `aer_worker` to run using `pjsub` but all other tasks on the login node. Changing the dictionary input to `TaskExecutor` will change which tasks run on the compute nodes and which tasks run on the login node.
