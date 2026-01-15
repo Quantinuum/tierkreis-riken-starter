@@ -1,4 +1,4 @@
-# Graphs for running computations on Fugaku
+# Example graphs
 
 ## Executors used
 
@@ -7,3 +7,14 @@
 - `TaskExecutor` routes tasks to different executors based on the tasks's fully qualified name. Glob expressions are used to route multiple tasks to a single executor.
 
 ## compile_run_ibm.py
+
+- Uses the Riken quantum C API to get the current transpilation information for IBM Kobe.
+- Compiles a simple circuit using `pytket` using the transpilation information.
+- Submits the compiled circuit to IBM Kobe for execution.
+- Parses the output of IBM Kobe giving results as a dictionary where the keys are classical register names and the values are lists of shots.
+
+## compile_run_reimei.py
+
+- Compiles the inputs circuit for use on Quantinuum Reimei.
+- Submits the compiled circuit to Quantinuum Reimei for execution.
+- Parses the output giving results as a dictionary where the keys are classical register names and the values are lists of shots.
