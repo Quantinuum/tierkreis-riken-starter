@@ -35,7 +35,7 @@ Compile and run a circuit on the Quantinuum Reimei simulator.
 
 ### simulate_aer.py
 
-Use `pjsub` to simulate circuits in parallel on the Fugaku compute nodes.
+Use `pjsub` to run simulations on the Fugaku compute nodes.
 
 - This script takes as an argument the group name under which we submit compute node jobs to Fugaku using `pjsub`.
 - Uses the `TaskExecutor` to run the `run_circuit` task of the `aer_worker` to run using `pjsub` but all other tasks on the login node. Changing the dictionary input to `TaskExecutor` will change which tasks run on the compute nodes and which tasks run on the login node.
