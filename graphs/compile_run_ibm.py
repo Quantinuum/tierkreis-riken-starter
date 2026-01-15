@@ -9,7 +9,7 @@ from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 from pytket.qasm.qasm import circuit_from_qasm
 
 from workers.tkr_ibm_kobe.stubs import get_transpile_info, compile_using_info, submit
-from workflows.consts import WORKERS_DIR
+from graphs.consts import WORKERS_DIR
 
 Circuit = OpaqueType["pytket._tket.circuit.Circuit"]
 BackendResult = OpaqueType["pytket.backends.backendresult.BackendResult"]

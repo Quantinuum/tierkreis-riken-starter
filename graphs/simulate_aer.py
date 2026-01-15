@@ -11,7 +11,7 @@ from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 from tierkreis.executor import UvExecutor, TaskExecutor, PJSUBExecutor
 from tierkreis.controller.executor.hpc.job_spec import JobSpec, ResourceSpec
 
-from workflows.consts import WORKERS_DIR
+from graphs.consts import WORKERS_DIR
 
 simulator_name = "aer"
 circuit = circuit_from_qasm(Path(__file__).parent / "data" / "ghz_state_n23.qasm")
@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
     uv = UvExecutor(WORKERS_DIR, logs_path)
     spec = JobSpec(
-        job_name="tkr_symbolic_ciruits",
+        job_name="tkr_aer_simulation",
         account=group_name,
         command="env UV_PROJECT_ENVIRONMENT=compute_venv uv run main.py",
         resource=ResourceSpec(nodes=1, memory_gb=None, gpus_per_node=None),
@@ -41,10 +41,7 @@ if __name__ == "__main__":
         include_no_check_directory_flag=True,
     )
     pjsub = PJSUBExecutor(spec=spec, registry_path=WORKERS_DIR, logs_path=logs_path)
-    executor = TaskExecutor(
-        {"qulacs_worker.run_circuit": pjsub, "aer_worker.run_circuit": pjsub, "*": uv},
-        storage,
-    )
+    executor = TaskExecutor({"aer_worker.run_circuit": pjsub, "*": uv}, storage)
 
     inputs: dict[str, Any] = {
         "circuits": circuits,
