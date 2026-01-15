@@ -18,3 +18,9 @@
 - Compiles the inputs circuit for use on Quantinuum Reimei.
 - Submits the compiled circuit to Quantinuum Reimei for execution.
 - Parses the output giving results as a dictionary where the keys are classical register names and the values are lists of shots.
+
+## compile_run_reimei_simulator.py
+
+- Compiles the inputs circuit for use on Quantinuum Reimei.
+- Submits the compiled circuit to the Quantinuum Reimei simulator for execution.
+- Parses the output giving results as a dictionary where the keys are classical register names and the values are lists of shots.
