@@ -15,10 +15,10 @@ deps: dict[str, TKRDependency] = {
         subdirectory="workers/tkr_reimei",
         branch="chore/tierkreis-riken-starter",
     ),
-    "qulacs_worker": GitHubDependency(
+    "aer_worker": GitHubDependency(
         account="quantinuum",
         repo="tierkreis",
-        subdirectory="tierkreis_workers/qulacs_worker",
+        subdirectory="tierkreis_workers/aer_worker",
     ),
 }
 

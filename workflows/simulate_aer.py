@@ -52,9 +52,9 @@ if __name__ == "__main__":
         "simulator_name": simulator_name,
         "compilation_optimisation_level": 2,
     }
-    inputs["simulator_name"] = "qulacs"
+    inputs["simulator_name"] = "aer"
 
-    print("Simulating using qulacs...")
+    print("Simulating using aer...")
     storage.clean_graph_files()
     start = time.time()
     run_graph(storage, executor, g, inputs, polling_interval_seconds=0.1)
