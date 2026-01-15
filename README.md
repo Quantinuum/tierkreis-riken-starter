@@ -37,7 +37,7 @@ where `<QPU_NAME>` is one of `ibm-kobe-dacc`, `reimei` or `reimei-simulator`.
 
 ### Install uv
 
-We install `uv` twice: once for the login node and once for the compute nodes.
+We install `uv` twice because of the different in architecture between the login and compute nodes.
 
 For the login node:
 
