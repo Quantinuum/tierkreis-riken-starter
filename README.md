@@ -20,29 +20,25 @@ The registration process is out of scope for this README but the following scrip
 From the root of the repository run the following commands, which will prompt for the credentials used to access Quantinuum Reimei and/or IBM Kobe.
 
 ```bash
-./tests/smoke_tests/test_reimei.sh
+./scripts/test_reimei.sh
 ```
 
 ```bash
-./tests/smoke_tests/test_reimei_simulator.sh
+./scripts/test_reimei_simulator.sh
 ```
 
 ```bash
-./tests/smoke_tests/test_ibm_kobe.sh
+./scripts/test_ibm_kobe.sh
 ```
 
 If there are errors at this point then the registration process is not completed or there is an error with a device.
 
 ### Device switching
 
-Currently one must manually switch between QPUs with the following commands before using the Tierkreis worker corresponding to the QPU:
+The following scripts will place a JWT at the location `$HOME/.sqc_rpc_sched/jwt-<QPU_NAME>.token`, which will be picked up by the appropriate Tierkreis worker if present.
 
 ```bash
-. /vol0300/share/ra010014/jhpcq/x86/scripts/install-cert-files.sh <QPU_NAME>;
-source /vol0003/share/ra010014/jhpcq/bin/jhpc-q-setup.sh
-fetch_qtm_jwt.py
-cp $HOME/.qtm.jwt $HOME/.sqc_rpc_sched/jwt-<QPU_NAME>.token
-mv $HOME/.qtm.jwt $HOME/.sqc_rpc_sched/jwt.token
+./scripts/auth_<QPU_NAME>.sh
 ```
 
 where `<QPU_NAME>` is one of `ibm-kobe-dacc`, `reimei` or `reimei-simulator`.
