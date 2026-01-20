@@ -23,4 +23,4 @@ deps: dict[str, TKRDependency] = {
 }
 
 if __name__ == "__main__":
-    install_dependencies(deps=deps, target_dir=Path.cwd() / "workers")
+    install_dependencies(deps=deps, target_dir=Path.cwd() / "workers_external")

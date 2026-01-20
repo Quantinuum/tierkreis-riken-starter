@@ -8,7 +8,7 @@ from tierkreis.executor import UvExecutor
 from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 from pytket.qasm.qasm import circuit_from_qasm
 
-from workers.tkr_reimei.stubs import compile_offline, sqcsub_submit_circuit
+from workers_external.tkr_reimei.stubs import compile_offline, sqcsub_submit_circuit
 from graphs.consts import WORKERS_DIR
 
 Circuit = OpaqueType["pytket._tket.circuit.Circuit"]

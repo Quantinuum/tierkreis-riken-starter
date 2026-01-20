@@ -8,7 +8,7 @@ from tierkreis.executor import UvExecutor
 from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 from pytket.qasm.qasm import circuit_from_qasm
 
-from workers.tkr_reimei.stubs import (
+from workers_external.tkr_reimei.stubs import (
     compile_offline,
     sqcsub_submit_circuit,
 )
