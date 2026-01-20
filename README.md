@@ -1,12 +1,12 @@
 # Tierkreis Riken starter project
 
-Example project for using Tierkreis on Fugaku (Riken).
+Example project for using Tierkreis on Fugaku.
 
 ## Project structure
 
 - `graphs`: The Tierkreis graphs that specify the order of execution of our computations.
 - `workers`: Each subdirectory constitutes a worker. A worker is a collection of task definitions that have a common set of dependencies.
-- `install_workers.py`: An example script to demonstrate how to pull in dependencies used in the graphs in `graphs`.
+- `install_workers.py`: An example script to demonstrate how to pull in dependencies used by the graphs in `graphs`.
 - `pyproject.toml`: The dependencies required to run the graphs in `graphs`. Worker dependencies should not be included.
 
 ## Set up
@@ -18,6 +18,10 @@ Clone this repo to the Fugaku login node.
 In order to access Quantinuum Reimei or IBM Kobe an out-of-band registration process is required.
 The registration process is out of scope for this README but the following scripts can be used to verify that this part has been set up correctly.
 From the root of the repository run the following commands, which will prompt for the credentials used to access Quantinuum Reimei and/or IBM Kobe.
+
+```bash
+./tests/smoke_tests/test_reimei.sh
+```
 
 ```bash
 ./tests/smoke_tests/test_reimei_simulator.sh
@@ -37,6 +41,7 @@ Currently one must manually switch between QPUs with the following commands befo
 . /vol0300/share/ra010014/jhpcq/x86/scripts/install-cert-files.sh <QPU_NAME>;
 source /vol0003/share/ra010014/jhpcq/bin/jhpc-q-setup.sh
 fetch_qtm_jwt.py
+cp $HOME/.qtm.jwt $HOME/.sqc_rpc_sched/jwt-<QPU_NAME>.token
 mv $HOME/.qtm.jwt $HOME/.sqc_rpc_sched/jwt.token
 ```
 
