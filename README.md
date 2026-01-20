@@ -36,15 +36,15 @@ If there are errors at this point then the registration process is not completed
 
 ### Device switching
 
-Currently the authentication for all devices is read from the single file `$HOME/.sqc_rpc_sched/jwt.token`.
-This means that overwriting this file with the JWT for a different device will lose access to the previous one.
-As a workaround the following scripts will place a JWT at the location `$HOME/.sqc_rpc_sched/jwt-<QPU_NAME>.token`, which will be picked up by the appropriate Tierkreis worker if present and swapped into `$HOME/.sqc_rpc_sched/jwt.token` just before a request is made.
+Currently we authenticate to the QPUs one at a time.
+So before running a workflow that uses a given QPU please run:
 
 ```bash
 ./scripts/auth_<QPU_NAME>.sh
 ```
 
 where `<QPU_NAME>` is one of `ibm-kobe-dacc`, `reimei` or `reimei-simulator`.
+This will put authentication information into the correct place in the filesystem.
 
 ### Install uv
 
