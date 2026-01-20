@@ -102,7 +102,7 @@ and then `cd` into each worker directory and make any manual preparations you re
 E.g.
 
 ```bash
-cd workers/aer_worker
+cd workers_external/aer_worker
 env UV_PROJECT_ENVIRONMENT=compute_venv uv sync
 ```
 
@@ -116,7 +116,7 @@ which builds C code for interacting directly with the Riken C API for QPUs.
 The script that performs the post-install operations is very specific to Fugaku and so will error if run elsewhere.
 
 ```bash
-cd workers/tkr_ibm_kobe
+cd workers_external/tkr_ibm_kobe
 ./scripts/build.sh
 ```
 
