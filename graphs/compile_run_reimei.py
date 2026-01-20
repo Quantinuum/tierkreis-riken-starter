@@ -12,7 +12,7 @@ from workers_external.tkr_reimei.stubs import (
     compile_offline,
     sqcsub_submit_circuit,
 )
-from workflows.consts import WORKERS_DIR
+from graphs.consts import WORKERS_DIR
 
 Circuit = OpaqueType["pytket._tket.circuit.Circuit"]
 BackendResult = OpaqueType["pytket.backends.backendresult.BackendResult"]
