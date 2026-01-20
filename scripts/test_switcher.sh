@@ -1,3 +1,5 @@
+set -euxo pipefail
+
 DIR=$(dirname $0)
 
 . /vol0300/share/ra010014/jhpcq/x86/scripts/install-cert-files.sh reimei-simulator;
@@ -14,6 +16,7 @@ sqcsub --nqubits 10 \
     --ofile ${DIR}/result.txt \
     --oformat raw \
     --qpu reimei-simulator
+
 
 
 . /vol0300/share/ra010014/jhpcq/x86/scripts/install-cert-files.sh ibm-kobe-dacc;
