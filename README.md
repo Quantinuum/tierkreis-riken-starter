@@ -5,7 +5,7 @@ Example project for using Tierkreis on Fugaku.
 ## Project structure
 
 - `graphs`: The Tierkreis graphs that specify the order of execution of our computations.
-- `workers_custom`: Each subdirectory constitutes a worker. A worker is a collection of task definitions that have a common set of dependencies. This is where we can write our own workers that carry out tasks specific to this project.
+- `workers`: Custom workers that carry out tasks specific to this project. Each subdirectory constitutes a worker. A worker is a collection of task definitions that have a common set of dependencies.
 - `workers_external`: Imported workers from external repositories.
 - `install_workers.py`: An example script to demonstrate how to pull in dependencies used by the graphs in `graphs`.
 - `pyproject.toml`: The dependencies required to run the graphs in `graphs`. Worker dependencies should not be included.
