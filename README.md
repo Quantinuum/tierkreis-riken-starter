@@ -107,6 +107,7 @@ env UV_PROJECT_ENVIRONMENT=compute_venv uv sync
 ```
 
 will save time by installing the dependencies before running your workflow.
+(The env var UV_PROJECT_ENVIRONMENT is to ensure the separation of Python virtual environments between the login and compute nodes. For an example see `graphs/simulate_aer.py`.)
 This is strictly speaking not necessary because `uv` will always perform a sync when running `uv run`.
 
 ### Post install step for IBM Kobe

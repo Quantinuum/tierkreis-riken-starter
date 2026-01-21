@@ -4,6 +4,7 @@
 
 - [UvExecutor](https://quantinuum.github.io/tierkreis/apidocs/tierkreis/tierkreis.controller.executor.uv_executor.html#tierkreis.controller.executor.uv_executor.UvExecutor) is used to run tasks in Python workers. These tasks will run on the Fugaku login node.
 - [PJSUBExecutor](https://quantinuum.github.io/tierkreis/executors/hpc/pjsub-fugaku.html) is an [HPC executor](https://quantinuum.github.io/tierkreis/executors/hpc.html) used to run tasks on the Fugaku compute nodes with `pjsub`.
+  - If we want to run a Python worker using `uv` using the `PJSUBExecutor` then we should add the env var `env UV_PROJECT_ENVIRONMENT=compute_venv` to the command in the `JobSpec`. This will ensure separation of Python virtual environments between the login and compute nodes. For an example see `graphs/simulate_aer.py`.
 - `TaskExecutor` routes tasks to different executors based on the task's fully qualified name. Glob expressions are used to route multiple tasks to a single executor.
 
 ## Graph descriptions
