@@ -130,3 +130,28 @@ uv run graphs/compile_run_reimei_simulator.py
 ```
 
 see the [README](./graphs/README.md) in the `graphs` directory for individual descriptions.
+
+## Adding custom workers
+
+To add a custom Tierkreis worker, create a folder in the `workers` directory.
+The easiest way to get started is to use the `tierkreis` Python library to create a Python worker.
+For instance
+
+```bash
+mkdir workers/my_worker
+cd workers/my_worker
+uv init
+```
+
+and modify the `main.py` to create Tierkreis tasks:
+
+```python
+from tierkreis import Worker
+
+worker = Worker("my_worker")
+
+@worker.task()
+def my_task(arg1: str): ...
+```
+
+An example is given in `workers/example_worker`, which constructs a few quantum circuits.
