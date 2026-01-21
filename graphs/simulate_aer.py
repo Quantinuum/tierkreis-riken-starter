@@ -11,7 +11,7 @@ from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 from tierkreis.executor import UvExecutor, TaskExecutor, PJSUBExecutor
 from tierkreis.controller.executor.hpc.job_spec import JobSpec, ResourceSpec
 
-from graphs.consts import EXTERNAL_WORKERS_DIR
+from graphs.consts import EXTERNAL_WORKERS_REGISTRY, REGISTRIES
 
 simulator_name = "aer"
 circuit = circuit_from_qasm(Path(__file__).parent / "data" / "ghz_state_n23.qasm")
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     storage = FileStorage(UUID(int=107), do_cleanup=True)
     logs_path = storage.logs_path
 
-    uv = UvExecutor(EXTERNAL_WORKERS_DIR, logs_path)
+    uv = UvExecutor(REGISTRIES, logs_path)
     spec = JobSpec(
         job_name="tkr_aer_simulation",
         account=group_name,
@@ -41,7 +41,7 @@ if __name__ == "__main__":
         include_no_check_directory_flag=True,
     )
     pjsub = PJSUBExecutor(
-        spec=spec, registry_path=EXTERNAL_WORKERS_DIR, logs_path=logs_path
+        spec=spec, registry_path=EXTERNAL_WORKERS_REGISTRY, logs_path=logs_path
     )
     executor = TaskExecutor({"aer_worker.run_circuit": pjsub, "*": uv}, storage)
 

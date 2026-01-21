@@ -11,7 +11,7 @@ from workers_external.tkr_reimei.stubs import (
     compile_offline,
     sqcsub_submit_circuit,
 )
-from graphs.consts import EXTERNAL_WORKERS_DIR
+from graphs.consts import REGISTRIES
 
 Circuit = OpaqueType["pytket._tket.circuit.Circuit"]
 BackendResult = OpaqueType["pytket.backends.backendresult.BackendResult"]
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     circuit = circuit_from_qasm(Path(__file__).parent / "data" / "simple.qasm")
 
     storage = FileStorage(UUID(int=402), do_cleanup=True)
-    exec = UvExecutor(EXTERNAL_WORKERS_DIR, storage.logs_path)
+    exec = UvExecutor(REGISTRIES, storage.logs_path)
     run_graph(storage, exec, g, circuit, polling_interval_seconds=1)
     output = read_outputs(g, storage)
     print(output)
