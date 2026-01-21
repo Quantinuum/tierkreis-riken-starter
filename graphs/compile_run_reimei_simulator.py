@@ -1,5 +1,4 @@
 from pathlib import Path
-from sys import argv
 from uuid import UUID
 from tierkreis import run_graph  # type: ignore
 from tierkreis.builder import GraphBuilder
@@ -22,8 +21,7 @@ if __name__ == "__main__":
     circuit = circuit_from_qasm(Path(__file__).parent / "data" / "simple.qasm")
 
     storage = FileStorage(UUID(int=401), do_cleanup=True)
-    env = {"IS_DEV": "True"} if len(argv) > 1 and argv[1] == "dev" else {}
-    exec = UvExecutor(EXTERNAL_WORKERS_DIR, storage.logs_path, env=env)
+    exec = UvExecutor(EXTERNAL_WORKERS_DIR, storage.logs_path)
     run_graph(storage, exec, g, circuit, polling_interval_seconds=1)
     output = read_outputs(g, storage)
     print(output)
