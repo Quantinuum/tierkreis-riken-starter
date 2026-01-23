@@ -1,5 +1,6 @@
 from pathlib import Path
-from tierkreis.pkg import install_dependencies
+from sys import argv
+from tierkreis.pkg import install_dependencies, remove_dependencies, clear_cache
 from tierkreis.pkg.base import TKRDependency
 from tierkreis.pkg.github import GitHubDependency
 
@@ -25,4 +26,8 @@ deps: dict[str, TKRDependency] = {
 }
 
 if __name__ == "__main__":
-    install_dependencies(deps=deps, target_dir=Path.cwd() / "workers_external")
+    if argv[1] == "--remove":
+        remove_dependencies(list(deps.keys()), Path.cwd() / "workers_external")
+        clear_cache()
+    else:
+        install_dependencies(deps, Path.cwd() / "workers_external")
