@@ -26,7 +26,9 @@ deps: dict[str, TKRDependency] = {
 }
 
 if __name__ == "__main__":
-    if argv[1] == "--remove":
+    if len(argv) > 1 and argv[1] == "--remove":
+        remove_dependencies(list(deps.keys()), Path.cwd() / "workers_external")
+    elif len(argv) > 1 and argv[1] == "--clean":
         remove_dependencies(list(deps.keys()), Path.cwd() / "workers_external")
         clear_cache()
     else:
