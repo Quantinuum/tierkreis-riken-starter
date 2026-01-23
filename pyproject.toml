@@ -7,6 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "pytket>=2.11.0",
     "pytket-qiskit>=0.76.0",
+    "qiskit-qasm3-import>=0.6.0",
     "tierkreis",
 ]
 
