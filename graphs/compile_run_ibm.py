@@ -23,7 +23,7 @@ res = g.task(submit(compiled_circuit, g.const(10)))
 g.outputs(res)
 
 if __name__ == "__main__":
-    circuit = circuit_from_qasm(Path(__file__).parent / "data" / "simple.qasm")
+    circuit = circuit_from_qasm(Path(__file__).parent / "data" / "ibm_question.qasm")
 
     storage = FileStorage(UUID(int=400), do_cleanup=True)
     exec = UvExecutor(REGISTRIES, storage.logs_path)
