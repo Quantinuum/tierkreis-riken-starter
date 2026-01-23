@@ -90,6 +90,9 @@ uv run ./install_workers.py
 will pull in some remote Python workers from GitHub.
 You can change the `deps` variable to pull in different workers.
 
+You can remove all specified dependencies by adding the `--remove` flag.
+The `--clean` flag will remove the specified dependencies and also clear the cached files used to generate them.
+
 ### Manual worker preparations (optional)
 
 One can make manual preparations for the workers by using an interactive environment.
