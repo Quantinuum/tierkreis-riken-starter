@@ -6,8 +6,7 @@ from tierkreis.controller.data.models import TKR, OpaqueType
 from tierkreis.executor import UvExecutor
 from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 from pytket.qasm.qasm import circuit_from_qasm
-from pytket.extensions.qiskit.qiskit_convert import qiskit_to_tk
-from qiskit import qasm3
+
 from workers_external.tkr_ibm_kobe.stubs import (
     get_transpile_info,
     compile_using_info,
@@ -24,9 +23,7 @@ res = g.task(submit(compiled_circuit, g.const(10)))
 g.outputs(res)
 
 if __name__ == "__main__":
-    circuit = qiskit_to_tk(
-        qasm3.load(str(Path(__file__).parent / "data" / "ibm_question.qasm"))
-    )
+    circuit = circuit_from_qasm(Path(__file__).parent / "data" / "ibm_question.qasm")
 
     storage = FileStorage(UUID(int=400), do_cleanup=True)
     exec = UvExecutor(REGISTRIES, storage.logs_path)
