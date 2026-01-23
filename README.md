@@ -36,15 +36,7 @@ If there are errors at this point then the registration process is not completed
 
 ### Device switching
 
-Currently we authenticate to the QPUs one at a time.
-So before running a workflow that uses a given QPU please run:
-
-```bash
-./scripts/auth_<QPU_NAME>.sh
-```
-
-where `<QPU_NAME>` is one of `ibm-kobe-dacc`, `reimei` or `reimei-simulator`.
-This will put authentication information into the correct place in the filesystem.
+Set the environment variables `JWT_EMAIL` and `JWT_PASSWORD` with the credentials tested in the above step.
 
 ### Install uv
 
