@@ -9,13 +9,11 @@ deps: dict[str, TKRDependency] = {
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_ibm_kobe",
-        branch="chore/separate-out-jwt-locations",
     ),
     "tkr_reimei": GitHubDependency(
         account="quantinuum",
         repo="tierkreis-riken",
         subdirectory="workers/tkr_reimei",
-        branch="chore/separate-out-jwt-locations",
     ),
     "aer_worker": GitHubDependency(
         account="quantinuum",
