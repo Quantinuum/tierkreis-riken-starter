@@ -20,6 +20,7 @@ deps: dict[str, TKRDependency] = {
         account="quantinuum",
         repo="tierkreis",
         subdirectory="tierkreis_workers/aer_worker",
+        branch="chore/tierkreis-riken-starter",
     ),
 }
 
