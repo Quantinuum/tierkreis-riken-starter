@@ -111,6 +111,8 @@ The worker for interacting with IBM Kobe needs a special post-install step,
 which builds C code for interacting directly with the Riken C API for QPUs.
 The script that performs the post-install operations is very specific to Fugaku and so will error if run elsewhere.
 
+On the Fugaku login node run
+
 ```bash
 cd workers_external/tkr_ibm_kobe
 ./scripts/build.sh
@@ -151,3 +153,14 @@ def my_task(arg1: str): ...
 ```
 
 An example is given in `workers/example_worker`, which constructs a few quantum circuits.
+A shortcut for generating workers is the tierkreis cli
+
+```bash
+uv run tkr project init worker --worker-directory ./workers --name --my_worker
+```
+
+To later generate the stubs which you will use in the `task()`s in a graph run
+
+```bash
+uv run tkr project init stubs --worker-directory ./workers
+```

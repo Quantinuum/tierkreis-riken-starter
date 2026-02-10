@@ -1,3 +1,5 @@
+from sys import argv
+
 from tierkreis import Worker
 from pytket import Circuit  # type: ignore
 
@@ -6,7 +8,7 @@ worker = Worker("example_worker")
 
 
 @worker.task()
-def circ1():
+def circ1() -> Circuit:
     circ = Circuit(4)
     circ.X(0)
     circ.CX(1, 3)
@@ -16,7 +18,7 @@ def circ1():
 
 
 @worker.task()
-def circ2():
+def circ2() -> Circuit:
     circ = Circuit(2)
     circ.H(0)
     circ.CX(0, 1)
@@ -29,3 +31,11 @@ def deterministic() -> Circuit:
     circ = Circuit(2, 2)
     circ.X(1).measure_all()
     return circ
+
+
+def main():
+    worker.app(argv)
+
+
+if __name__ == "__main__":
+    main()
