@@ -59,7 +59,15 @@ tar -C $HOME/.local/bin_aarch64/ -xvzf /tmp/uv/uv-aarch64-unknown-linux-gnu.tar.
 Then add the following to `.bashrc` to select the correct one:
 
 ```bash
-. "$HOME/.local/bin_$(uname -p)/env"
+# uv path
+case ":${PATH}:" in
+        *:"$HOME/.local/bin_$(uname -p)":*)
+        ;;
+    *)
+        # Prepending path in case a system-installed binary needs to be overridden
+        export PATH="$HOME/.local/bin_$(uname -p):$PATH"
+        ;;
+esac
 ```
 
 Confirm that the correct `uv` is selected for the login node, after starting a new session
