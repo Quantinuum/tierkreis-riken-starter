@@ -388,14 +388,14 @@ wheels = [
 
 [[package]]
 name = "tierkreis"
-version = "2.0.9"
+version = "2.0.11"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/58/6b/5c046e8ae31650496564ee46c994d5b473807997b7b5251c6fd1bb4b1e7e/tierkreis-2.0.9.tar.gz", hash = "sha256:cf9fc8e070165a0439dbcb8e11a489c27bb2ce1652541546a6b727774e62c2f0", size = 94057, upload-time = "2025-11-05T13:41:19.873Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/87/cb/7448fad7d3ea410939a2be2a02b1093e1f9465b9687f852fe098c91c2b57/tierkreis-2.0.11.tar.gz", hash = "sha256:83cb3c7621f70aac7b9aabc3c98413d4d7778e6db47185ace8cb22e90d977c1d", size = 127204, upload-time = "2026-02-24T16:27:54.432Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/07/c9/1120bfb1d377af80b57f44180c4688c4e59c2136e868ed428c7e69f6e436/tierkreis-2.0.9-py3-none-any.whl", hash = "sha256:32ca48163afc6387505ca901cd7342c43c372de4bacca828bf2f286ad965e913", size = 69188, upload-time = "2025-11-05T13:41:17.285Z" },
+    { url = "https://files.pythonhosted.org/packages/9d/bf/4afe966b518660b4b7b26f50ab0be43ec6468f2a3e04372292f511785bcc/tierkreis-2.0.11-py3-none-any.whl", hash = "sha256:c0a87d1ac9e94c5c7bb42a48d0118b4260fcb94313b2500b2bf242c885f81708", size = 85467, upload-time = "2026-02-24T15:40:20.403Z" },
 ]
 
 [[package]]
@@ -410,7 +410,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "pytket", specifier = ">=2.11.0" },
-    { name = "tierkreis", specifier = "==2.0.9" },
+    { name = "tierkreis", specifier = "==2.0.11" },
 ]
 
 [[package]]
