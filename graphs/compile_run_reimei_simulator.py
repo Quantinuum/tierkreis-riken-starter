@@ -1,14 +1,15 @@
 from pathlib import Path
 from uuid import UUID
+
+from pytket.qasm.qasm import circuit_from_qasm
 from tierkreis import run_graph  # type: ignore
 from tierkreis.builder import GraphBuilder
 from tierkreis.controller.data.models import TKR, OpaqueType
 from tierkreis.executor import UvExecutor
 from tierkreis.storage import FileStorage, read_outputs  # type: ignore
-from pytket.qasm.qasm import circuit_from_qasm
 
-from workers_external.tkr_reimei.stubs import compile_offline, sqcsub_submit_circuit
 from graphs.consts import REGISTRIES
+from workers_external.tkr_reimei.stubs import compile_offline, sqcsub_submit_circuit
 
 Circuit = OpaqueType["pytket._tket.circuit.Circuit"]
 BackendResult = OpaqueType["pytket.backends.backendresult.BackendResult"]
@@ -22,6 +23,8 @@ if __name__ == "__main__":
 
     storage = FileStorage(UUID(int=401), do_cleanup=True)
     exec = UvExecutor(REGISTRIES, storage.logs_path)
+    print(f"Running graph with ID {storage.workflow_id}...")
+    print(f"Graph logs at ~/.tierkreis/checkpoints/{storage.workflow_id}/logs")
     run_graph(storage, exec, g, circuit, polling_interval_seconds=1)
     output = read_outputs(g, storage)
     print(output)

@@ -1,15 +1,15 @@
+import time
 from pathlib import Path
 from sys import argv
-import time
 from typing import Any
-from pytket.qasm.qasm import circuit_from_qasm
-from tierkreis.graphs.simulate.compile_simulate import compile_simulate
 from uuid import UUID
 
+from pytket.qasm.qasm import circuit_from_qasm
 from tierkreis.controller import run_graph  # type: ignore
-from tierkreis.storage import FileStorage, read_outputs  # type: ignore
-from tierkreis.executor import UvExecutor, TaskExecutor, PJSUBExecutor
 from tierkreis.controller.executor.hpc.job_spec import JobSpec, ResourceSpec
+from tierkreis.executor import PJSUBExecutor, TaskExecutor, UvExecutor
+from tierkreis.graphs.simulate.compile_simulate import compile_simulate
+from tierkreis.storage import FileStorage, read_outputs  # type: ignore
 
 from graphs.consts import EXTERNAL_WORKERS_REGISTRY, REGISTRIES
 
@@ -56,6 +56,8 @@ if __name__ == "__main__":
     print("Simulating using aer...")
     storage.clean_graph_files()
     start = time.time()
+    print(f"Running graph with ID {storage.workflow_id}...")
+    print(f"Graph logs at ~/.tierkreis/checkpoints/{storage.workflow_id}/logs")
     run_graph(storage, executor, g, inputs, polling_interval_seconds=0.1)
     print(f"time taken: {time.time() - start}")
     res = read_outputs(g, storage)
