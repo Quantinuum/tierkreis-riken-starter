@@ -37,6 +37,7 @@ If there are errors at this point then the registration process is not completed
 ### Device switching
 
 Set the environment variables `JWT_EMAIL` and `JWT_PASSWORD` with the credentials tested in the above step.
+Make sure to export both of these variables so that they are available to the Python process that will orchestrate the graph runs.
 
 ### Install uv
 
