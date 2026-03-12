@@ -42,6 +42,13 @@ Set the environment variables `JWT_EMAIL` and `JWT_PASSWORD` with the credential
 
 We install `uv` twice because of the difference in architecture between the login and compute nodes.
 
+First ensure the directories exist:
+
+```bash
+mkdir -p ~/.local/bin_x86_64
+mkdir -p ~/.local/bin_aarch64
+```
+
 For the login node:
 
 ```bash
@@ -56,7 +63,7 @@ wget https://github.com/astral-sh/uv/releases/download/0.9.24/uv-aarch64-unknown
 tar -C $HOME/.local/bin_aarch64/ -xvzf /tmp/uv/uv-aarch64-unknown-linux-gnu.tar.gz --strip-components=1
 ```
 
-Then add the following to `.bashrc` to select the correct one:
+Then add the following to `.bash_profile` to select the correct one:
 
 ```bash
 # uv path
