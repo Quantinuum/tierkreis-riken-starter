@@ -145,6 +145,20 @@ uv run graphs/compile_run_reimei_simulator.py
 
 see the [README](./graphs/README.md) in the `graphs` directory for individual descriptions.
 
+To monitor the graph run, inspect the logs file using
+
+```bash
+tail -f ~/.tierkreis/checkpoints/<WORKFLOW_ID>/logs
+```
+
+and use
+
+```bash
+pjstat -v
+```
+
+to see any jobs started using `pjstat`.
+
 ## Adding custom workers
 
 To add a custom Tierkreis worker, create a folder in the `workers` directory.
